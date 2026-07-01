@@ -1,0 +1,52 @@
+import random
+rows=int(input("Enter number of rows: "))
+x=random.randint(1,rows)
+y=random.randint(1,rows)
+pattern=[]
+
+def creatre_initial():
+    for i in range(rows):
+        t_list=[]
+        for j in range(rows):
+            t_list.append("O")
+        pattern.append(t_list)
+        
+def create_pattern(a,b):
+    for i in range(rows):
+        for j in range(rows):
+            if i==a and j==b:
+                pattern[i][j] = "X"
+
+def display_pattern():
+    for i in range(rows):
+        for j in range(rows):
+            print(pattern[i][j], end=" ")
+        print()
+    print([f"Hint: The Battel ship position {x,y}"])
+   
+             
+if __name__ == "__main__":
+    creatre_initial()
+    display_pattern()
+    print("The position as per index: ",x-1,y-1)
+    for count in range(rows):
+        guess_row= int(input("Enter the guessed row: "))
+        guess_col= int(input("Enter the guessed col: "))
+        if guess_row == x and guess_col == y:
+            print("Congratulation! You desotryed the enemy battel ship ")
+            break
+        else:
+            if count== 4:
+                print("Enemy has reached your post and destoryed it. You lose!")
+                break
+            if guess_row < 1 or guess_col < 1:
+                print("Where are you targetting?? Invaild rows and columns... Enemy is one step closer to your post")
+            elif guess_row > rows or guess_col > rows:
+                print("Why are you shotting in ocean?? Invaild rows and columns... Enemy is one step closer to your post")
+            else:
+                print("That was a close shot but not good enough... Enemy is one step closer to your post")
+            
+            
+            create_pattern(guess_row-1,guess_col-1)
+            display_pattern()
+            print("\n")
