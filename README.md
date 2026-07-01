@@ -49,22 +49,23 @@ O O O O
 O O O O
 O O O O
 O O O O
-```
+
 Enter guessed row: 2
 Enter guessed col: 3
 
 #for every worng guess by user. The guessed_row and guessed_column will marked "X"
-```text
+
 O O O O
 O O X O
 O O O O
 O O O O
-```
+
 That was a close shot but not good enough.
 
 #The user guess is correct, pattern will not be printed in output 
-Output: "Congratulation! You desotryed the enemy battelship"
 
+Output: "Congratulation! You desotryed the enemy battelship"
+```
 ## Future Improvements
 
 - Multiple battleships
